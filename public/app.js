@@ -96,10 +96,6 @@ function getFilteredTickets(list){
     }
 });
 
-/* -------------------
-   Render Tickets
--------------------- */
-
 function renderTickets(list, container){
     if(!container) return;
     container.innerHTML = '';
@@ -150,10 +146,6 @@ function renderMyTickets(){
     const mine = filtered.filter(t=>t.assignee === me);
     renderTickets(mine, myTicketsContainer);
 }
-
-/* -------------------
-   Open Ticket
--------------------- */
 
 function openTicket(ticket) {
 
@@ -289,10 +281,6 @@ function showDetails(ticket){
     }
 }
 
-/* -------------------
-   Close Modal
--------------------- */
-
 document
     .querySelectorAll(".close-btn")
     .forEach(btn => {
@@ -310,10 +298,6 @@ document
 
     });
 
-/* -------------------
-   Open Create Modal
--------------------- */
-
 document
     .getElementById("newTicketBtn")
     .addEventListener(
@@ -327,9 +311,6 @@ document
         }
     );
 
-/* -------------------
-   Add Ticket
--------------------- */
 
 document
     .getElementById("addTicketBtn")
@@ -373,9 +354,6 @@ document
         }
     );
 
-/* -------------------
-   Close Ticket
--------------------- */
 
 document
     .getElementById("closeTicketBtn")
@@ -406,10 +384,6 @@ document
         }
     );
 
-/* -------------------
-   Delete Ticket
--------------------- */
-
 document
     .getElementById("deleteTicketBtn")
     .addEventListener(
@@ -432,10 +406,6 @@ document
         }
     );
 
-/* -------------------
-   Search
--------------------- */
-
 document
     .getElementById("searchInput")
     .addEventListener(
@@ -451,9 +421,6 @@ document
         }
     );
 
-/* -------------------
-   Dashboard Stats
--------------------- */
 
 function updateStats() {
 

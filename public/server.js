@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
@@ -75,23 +75,23 @@ app.get('/api/tickets/:id', (req, res) => {
 // CREATE new ticket
 app.post('/api/tickets', (req, res) => {
   const { title, description, priority, category, assignee } = req.body;
-  
-  if (!title || !description) {
-    return res.status(400).json({ error: 'Title and description are required' });
+
+  if (typeof title !== 'string' || typeof description !== 'string' || !title.trim() || !description.trim()) {
+    return res.status(400).json({ error: 'Title and description are required and must be strings' });
   }
-  
+
   const newTicket = {
     id: uuidv4(),
-    title,
-    description,
-    priority: priority || 'medium',
-    category: category || 'General',
-    assignee: assignee || 'Unassigned',
+    title: title.trim(),
+    description: description.trim(),
+    priority: (typeof priority === 'string' && priority.trim()) ? priority.trim().toLowerCase() : 'medium',
+    category: (typeof category === 'string' && category.trim()) ? category.trim() : 'General',
+    assignee: (typeof assignee === 'string' && assignee.trim()) ? assignee.trim() : 'Unassigned',
     status: 'open',
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString()
   };
-  
+
   tickets.push(newTicket);
   res.status(201).json(newTicket);
 });
@@ -104,16 +104,16 @@ app.put('/api/tickets/:id', (req, res) => {
   }
   
   const { title, description, priority, status, assignee, category } = req.body;
-  
-  if (title) ticket.title = title;
-  if (description) ticket.description = description;
-  if (priority) ticket.priority = priority;
-  if (status) ticket.status = status;
-  if (assignee) ticket.assignee = assignee;
-  if (category) ticket.category = category;
-  
+
+  if (typeof title === 'string' && title.trim()) ticket.title = title.trim();
+  if (typeof description === 'string' && description.trim()) ticket.description = description.trim();
+  if (typeof priority === 'string' && priority.trim()) ticket.priority = priority.trim().toLowerCase();
+  if (typeof status === 'string' && status.trim()) ticket.status = status.trim().toLowerCase();
+  if (typeof assignee === 'string' && assignee.trim()) ticket.assignee = assignee.trim();
+  if (typeof category === 'string' && category.trim()) ticket.category = category.trim();
+
   ticket.updatedAt = new Date().toISOString();
-  
+
   res.json(ticket);
 });
 

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicketPro</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="logo-section">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-ticket"></i>
+                </div>
+                <span class="logo-text">TicketPro</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="#" class="nav-item active">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i class="fa-solid fa-ticket"></i>
+                <span>All Tickets</span>
+            </a>
+
+            <a href="#" class="nav-item">
+                <i class="fa-solid fa-user"></i>
+                <span>My Tickets</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="filter-section">
+
+            <h3>FILTER BY STATUS</h3>
+
+            <label class="checkbox-item">
+                <input type="checkbox" id="openFilter" checked>
+                <span>Open</span>
+            </label>
+
+            <label class="checkbox-item">
+                <input type="checkbox" id="progressFilter" checked>
+                <span>In Progress</span>
+            </label>
+
+            <label class="checkbox-item">
+                <input type="checkbox" id="closedFilter" checked>
+                <span>Closed</span>
+            </label>
+
+        </div>
+
+        <button class="new-ticket-btn" id="newTicketBtn">
+            <i class="fa-solid fa-plus"></i>
+            <span>New Ticket</span>
+        </button>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <!-- HEADER -->
+        <header class="header">
+
+            <h1>Dashboard</h1>
+
+            <div class="header-right">
+
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search tickets...">
+                </div>
+
+                <div class="profile">
+
+                    <div class="avatar">
+                        CS
+                    </div>
+
+                    <span>Chandra Sekhar</span>
+
+                    <i class="fa-solid fa-angle-down"></i>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- STATS -->
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-folder-open"></i>
+                </div>
+
+                <div class="stat-content">
+                    <h3>Open Tickets</h3>
+                    <h2 id="openCount">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-spinner"></i>
+                </div>
+
+                <div class="stat-content">
+                    <h3>In Progress</h3>
+                    <h2 id="progressCount">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                <div class="stat-content">
+                    <h3>Closed</h3>
+                    <h2 id="closedCount">0</h2>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon dark">
+                    <i class="fa-solid fa-layer-group"></i>
+                </div>
+
+                <div class="stat-content">
+                    <h3>Total Tickets</h3>
+                    <h2 id="totalCount">0</h2>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- TICKETS -->
+<section class="ticket-layout">
+
+    <!-- LEFT SIDE -->
+    <div class="tickets-panel">
+
+        <h2>Tickets</h2>
+
+        <div id="ticketsContainer"></div>
+
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="details-panel">
+
+        <h2>Ticket Details</h2>
+
+        <div id="ticketDetails">
+
+            <p>Select a ticket</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+</div>
+
+<!-- TICKET DETAILS MODAL -->
+<div id="ticketModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close-btn">&times;</span>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalDescription"></p>
+
+        <div class="modal-actions">
+
+            <button id="closeTicketBtn">
+                Close Ticket
+            </button>
+
+            <button id="deleteTicketBtn">
+                Delete Ticket
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- CREATE TICKET MODAL -->
+<div id="createTicketModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close-btn">&times;</span>
+
+        <h2>Create Ticket</h2>
+
+        <input
+            type="text"
+            id="ticketTitle"
+            placeholder="Ticket Title">
+
+        <br><br>
+
+        <textarea
+            id="ticketDescription"
+            rows="5"
+            placeholder="Description"></textarea>
+
+        <br><br>
+
+        <button id="addTicketBtn">
+            Create Ticket
+        </button>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
+

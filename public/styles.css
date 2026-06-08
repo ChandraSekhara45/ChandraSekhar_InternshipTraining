@@ -1,0 +1,923 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f5f5f5;
+    color:#111;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+button{
+    font-family:inherit;
+}
+
+/* =========================
+   LAYOUT
+========================= */
+
+.container{
+    display:flex;
+    min-height:100vh;
+}
+
+.main-content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar{
+    width:280px;
+    background:#000;
+    color:#fff;
+    padding:28px 24px;
+    display:flex;
+    flex-direction:column;
+}
+
+.logo-section{
+    margin-bottom:40px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-icon{
+    font-size:22px;
+}
+
+.logo-text{
+    font-size:20px;
+    font-weight:700;
+}
+
+.sidebar-nav{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.nav-item{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:16px;
+    border-radius:14px;
+    transition:0.3s;
+    font-size:18px;
+}
+
+.nav-item:hover{
+    background:#171717;
+}
+
+.nav-item.active{
+    background:#1d1d1d;
+}
+
+.sidebar-divider{
+    height:1px;
+    background:#1f1f1f;
+    margin:36px 0;
+}
+
+/* =========================
+   FILTERS
+========================= */
+
+.filter-section h3{
+    font-size:15px;
+    margin-bottom:22px;
+    letter-spacing:.5px;
+}
+
+.checkbox-item{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:18px;
+    font-size:17px;
+    cursor:pointer;
+}
+
+/* REMOVE BLUE CHECKBOX */
+
+.checkbox-item input{
+    appearance:none;
+    width:22px;
+    height:22px;
+    border:2px solid white;
+    border-radius:4px;
+    background:#fff;
+    cursor:pointer;
+    position:relative;
+}
+
+.checkbox-item input:checked::after{
+    content:"✓";
+    color:#000;
+    font-size:14px;
+    position:absolute;
+    left:4px;
+    top:0px;
+}
+
+/* =========================
+   NEW TICKET BUTTON
+========================= */
+
+.new-ticket-btn{
+    margin-top:auto;
+    border:2px solid #fff;
+    background:#000;
+    color:#fff;
+    padding:16px;
+    border-radius:14px;
+    font-size:20px;
+    cursor:pointer;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+
+    transition:.3s;
+}
+
+.new-ticket-btn:hover{
+    background:#fff;
+    color:#000;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header{
+    background:#fff;
+    padding:22px 40px;
+    border-bottom:1px solid #e5e5e5;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header h1{
+    font-size:52px;
+    font-weight:700;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:28px;
+}
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box{
+    width:380px;
+    height:64px;
+    border:1px solid #ddd;
+    border-radius:18px;
+    background:#fff;
+
+    display:flex;
+    align-items:center;
+    gap:14px;
+
+    padding:0 22px;
+}
+
+.search-box i{
+    font-size:20px;
+    color:#555;
+}
+
+.search-box input{
+    flex:1;
+    border:none;
+    outline:none;
+    font-size:20px;
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    font-size:18px;
+}
+
+.avatar{
+    width:56px;
+    height:56px;
+    border-radius:50%;
+    background:#000;
+    color:#fff;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-weight:700;
+}
+
+/* =========================
+   DASHBOARD STATS
+========================= */
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:22px;
+
+    padding:38px 34px 26px;
+}
+
+.stat-card{
+    background:#fff;
+    border-radius:18px;
+    padding:30px;
+
+    display:flex;
+    align-items:center;
+    gap:24px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.04);
+}
+
+.stat-icon{
+    width:78px;
+    height:78px;
+
+    border-radius:50%;
+    background:#d9d9d9;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:30px;
+}
+
+.stat-icon.dark{
+    background:#000;
+    color:#fff;
+}
+
+.stat-content h3{
+    font-size:18px;
+    font-weight:600;
+    margin-bottom:6px;
+}
+
+.stat-content h2{
+    font-size:54px;
+    line-height:1;
+}
+
+/* =========================
+   TICKETS SECTION
+========================= */
+
+.tickets-section{
+    margin:0 34px 34px;
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+
+    box-shadow:
+        0 2px 10px rgba(0,0,0,.04);
+}
+
+.tickets-section h2{
+    font-size:26px;
+    margin-bottom:22px;
+}
+
+
+/* =========================
+   TICKET CARDS
+========================= */
+
+.ticket-card{
+    background:#fff;
+    border:1px solid #ececec;
+    border-left:6px solid #000;
+
+    border-radius:16px;
+
+    padding:28px 30px;
+
+    margin-bottom:18px;
+
+    transition:.3s;
+}
+
+.ticket-card:hover{
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 24px rgba(0,0,0,.08);
+}
+
+.ticket-card.medium{
+    border-left-color:#777;
+}
+
+.ticket-card.low{
+    border-left-color:#cfcfcf;
+}
+
+.ticket-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+
+    margin-bottom:18px;
+}
+
+.ticket-top h3{
+    font-size:22px;
+    margin-bottom:6px;
+}
+
+.ticket-id{
+    color:#666;
+    font-size:16px;
+}
+
+/* =========================
+   BADGES
+========================= */
+
+.badges{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.badge{
+    min-width:90px;
+
+    text-align:center;
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    border:1px solid #666;
+
+    background:#fff;
+
+    color:#111;
+
+    font-size:14px;
+    font-weight:600;
+
+    letter-spacing:.3px;
+}
+
+.high-badge{
+    background:#000;
+    color:#fff;
+    border:none;
+}
+
+.medium-badge{
+    background:#f2f2f2;
+}
+
+.low-badge{
+    background:#fafafa;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+
+.ticket-description{
+    font-size:17px;
+    color:#333;
+
+    margin-bottom:26px;
+
+    line-height:1.7;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.ticket-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.assignee{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.mini-avatar{
+    width:42px;
+    height:42px;
+
+    border-radius:50%;
+
+    background:#000;
+    color:#fff;
+
+    font-size:14px;
+    font-weight:700;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.assignee span{
+    font-size:17px;
+    font-weight:500;
+}
+
+.time{
+    color:#222;
+    font-size:17px;
+    font-weight:500;
+}
+
+/* =========================
+   CARD ALIGNMENT FIXES
+========================= */
+
+.stat-card{
+    min-height:150px;
+}
+
+.stat-content{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.ticket-top > div:first-child{
+    flex:1;
+}
+
+.badges{
+    flex-shrink:0;
+}
+
+.ticket-footer .time{
+    white-space:nowrap;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f2f2f2;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#000;
+    border-radius:20px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1400px){
+
+    .stats-grid{
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+}
+
+@media(max-width:1024px){
+
+    .sidebar{
+        width:240px;
+    }
+
+    .header{
+        padding:24px;
+    }
+
+    .header h1{
+        font-size:42px;
+    }
+
+    .search-box{
+        width:300px;
+    }
+}
+
+@media(max-width:768px){
+
+    .container{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+    }
+
+    .stats-grid{
+        grid-template-columns:1fr;
+    }
+
+    .header{
+        flex-direction:column;
+        gap:20px;
+        align-items:flex-start;
+    }
+
+    .header-right{
+        width:100%;
+        flex-direction:column;
+    }
+
+    .search-box{
+        width:100%;
+    }
+
+    .ticket-top{
+        flex-direction:column;
+        gap:16px;
+    }
+
+    .ticket-footer{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:14px;
+    }
+
+    .badges{
+        width:100%;
+    }
+}
+
+/* =========================
+   SMALL POLISH
+========================= */
+
+.nav-item i{
+    width:22px;
+    text-align:center;
+}
+
+.logo-icon{
+    width:28px;
+    text-align:center;
+}
+
+.profile i{
+    color:#666;
+}
+
+.search-box:hover{
+    border-color:#999;
+}
+
+.search-box:focus-within{
+    border-color:#000;
+}
+
+.ticket-card:hover .ticket-top h3{
+    color:#000;
+}
+
+.new-ticket-btn i{
+    font-size:18px;
+}
+
+.checkbox-item span{
+    user-select:none;
+}
+
+.sidebar{
+    position:sticky;
+    top:0;
+    height:100vh;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.6);
+
+    justify-content:center;
+    align-items:center;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    width:500px;
+    background:white;
+    padding:30px;
+    border-radius:16px;
+}
+
+.modal-actions{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+}
+
+.close-btn{
+    float:right;
+    cursor:pointer;
+    font-size:24px;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.75);
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.modal.show{
+    display:flex;
+}
+
+.modal-content{
+    width:600px;
+    max-width:90%;
+    background:#fff;
+    border-radius:18px;
+    padding:32px;
+    position:relative;
+    animation:modalFade .25s ease;
+}
+
+@keyframes modalFade{
+
+    from{
+        opacity:0;
+        transform:translateY(-15px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.close-btn{
+    position:absolute;
+    top:18px;
+    right:22px;
+    font-size:28px;
+    cursor:pointer;
+    color:#444;
+}
+
+.close-btn:hover{
+    color:#000;
+}
+
+.modal-content h2{
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+/* =========================
+   MODAL FORM
+========================= */
+
+.modal-content input,
+.modal-content textarea{
+
+    width:100%;
+
+    border:1px solid #d8d8d8;
+
+    border-radius:12px;
+
+    padding:14px 16px;
+
+    font-size:16px;
+
+    outline:none;
+
+    margin-top:10px;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus{
+    border-color:#000;
+}
+
+.modal-content textarea{
+    resize:none;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.modal-actions{
+    display:flex;
+    gap:12px;
+    margin-top:24px;
+}
+
+#addTicketBtn,
+#closeTicketBtn,
+#deleteTicketBtn{
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:12px 18px;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.2s;
+}
+
+#addTicketBtn{
+    background:#000;
+    color:#fff;
+    width:100%;
+    margin-top:16px;
+}
+
+#addTicketBtn:hover{
+    opacity:.9;
+}
+
+#closeTicketBtn{
+    background:#000;
+    color:#fff;
+}
+
+#deleteTicketBtn{
+    background:#eaeaea;
+    color:#000;
+}
+
+#deleteTicketBtn:hover{
+    background:#d8d8d8;
+}
+
+/* =========================
+   TICKET CLICK EFFECT
+========================= */
+
+.ticket-card{
+    cursor:pointer;
+}
+
+.ticket-card:active{
+    transform:scale(.99);
+}
+
+/* =========================
+   TICKETS CONTAINER
+========================= */
+
+#ticketsContainer{
+    display:flex;
+    flex-direction:column;
+}
+
+/* =========================
+   STATUS COLORS
+========================= */
+
+.ticket-card.high{
+    border-left:6px solid #000;
+}
+
+.ticket-card.medium{
+    border-left:6px solid #777;
+}
+
+.ticket-card.low{
+    border-left:6px solid #cfcfcf;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+
+.empty-state{
+
+    text-align:center;
+
+    padding:50px;
+
+    color:#666;
+
+    font-size:18px;
+}
+
+/* =========================
+   FILTER CHECKBOX FIX
+========================= */
+
+.checkbox-item input[type="checkbox"]{
+    appearance:none;
+    width:18px;
+    height:18px;
+    border:2px solid #fff;
+    background:#fff;
+    cursor:pointer;
+}
+
+.checkbox-item input[type="checkbox"]:checked{
+    background:#000;
+    box-shadow:inset 0 0 0 3px #fff;
+}
+
+/* =========================
+   PROFILE HOVER
+========================= */
+
+.profile{
+    cursor:pointer;
+}
+
+.profile:hover{
+    opacity:.8;
+}
+
+/* =========================
+   MOBILE MODAL
+========================= */
+
+@media(max-width:768px){
+
+    .modal-content{
+        width:95%;
+        padding:24px;
+    }
+
+    .modal-actions{
+        flex-direction:column;
+    }
+
+    #closeTicketBtn,
+    #deleteTicketBtn{
+        width:100%;
+    }
+}
+

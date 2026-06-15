@@ -4,7 +4,7 @@ const MOCK_PRODUCTS = [
   {
     id: 'prod-1',
     name: 'Aero ANC Headphones',
-    price: 299,
+    price: 24900,
     category: 'Audio',
     image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80',
     description: 'Ultra-lightweight active noise-cancelling headphones. Crafted with aerospace-grade aluminum and premium memory foam cups. Seamless multipoint Bluetooth connection.',
@@ -23,7 +23,7 @@ const MOCK_PRODUCTS = [
   {
     id: 'prod-2',
     name: 'Horizon Chronograph',
-    price: 450,
+    price: 36900,
     category: 'Accessories',
     image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=600&q=80',
     description: 'A masterpiece of minimalism. Featuring a matte-grey brushed steel case, Swiss quartz movement, and an Italian full-grain black leather strap.',
@@ -41,7 +41,7 @@ const MOCK_PRODUCTS = [
   {
     id: 'prod-3',
     name: 'Ghost Mechanical Keyboard',
-    price: 185,
+    price: 14900,
     category: 'Tech',
     image: 'https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80',
     description: 'Hot-swappable 75% layout mechanical keyboard with silent linear switches. Elegant frosted glass base with subtle monochrome LED backlighting.',
@@ -60,7 +60,7 @@ const MOCK_PRODUCTS = [
   {
     id: 'prod-4',
     name: 'Mono Carbon Backpack',
-    price: 220,
+    price: 18500,
     category: 'Lifestyle',
     image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=600&q=80',
     description: 'Waterproof commuter backpack featuring modern geometric lines. Crafted with carbon fiber reinforced Cordura fabric. Internal laptop sleeve protects up to 16” devices.',
@@ -78,7 +78,7 @@ const MOCK_PRODUCTS = [
   {
     id: 'prod-5',
     name: 'Cask Titanium Mug',
-    price: 65,
+    price: 5500,
     category: 'Lifestyle',
     image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80',
     description: 'Vacuum double-wall construction mug made from pure Japanese grade-1 titanium. Retains beverage temperature for hours while remaining cool to the touch.',
@@ -94,7 +94,7 @@ const MOCK_PRODUCTS = [
   {
     id: 'prod-6',
     name: 'Obelisk Desk Mat',
-    price: 45,
+    price: 3900,
     category: 'Office',
     image: 'https://images.unsplash.com/photo-1632292224971-0d45778bd364?auto=format&fit=crop&w=600&q=80',
     description: 'Reversible desk pad combining dark-charcoal merino wool felt on one side and premium anti-slip cork lining on the other. Protects and frames your workspace beautifully.',
@@ -112,7 +112,7 @@ const MOCK_PRODUCTS = [
   {
     id: 'prod-7',
     name: 'Helix Modular Shelf',
-    price: 135,
+    price: 11500,
     category: 'Home',
     image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=600&q=80',
     description: 'Minimalist wall-mounted shelf constructed from powder-coated structural carbon steel. Interchangeable panel configurations to showcase your books and items.',
@@ -128,7 +128,7 @@ const MOCK_PRODUCTS = [
   {
     id: 'prod-8',
     name: 'Umbra Table Lamp',
-    price: 195,
+    price: 16500,
     category: 'Home',
     image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=600&q=80',
     description: 'Sculptural ambient light source. Featuring a solid black marble base, textured volcanic stone shaft, and a hand-blown frosted glass sphere diffuser.',
@@ -147,11 +147,11 @@ const MOCK_PRODUCTS = [
 
 const loadProducts = () => {
   try {
-    const data = localStorage.getItem('products');
+    const data = localStorage.getItem('products_v2');
     if (data) {
       return JSON.parse(data);
     }
-    localStorage.setItem('products', JSON.stringify(MOCK_PRODUCTS));
+    localStorage.setItem('products_v2', JSON.stringify(MOCK_PRODUCTS));
     return MOCK_PRODUCTS;
   } catch (e) {
     return MOCK_PRODUCTS;
@@ -159,7 +159,7 @@ const loadProducts = () => {
 };
 
 const saveProducts = (products) => {
-  localStorage.setItem('products', JSON.stringify(products));
+  localStorage.setItem('products_v2', JSON.stringify(products));
 };
 
 const productsSlice = createSlice({
@@ -169,7 +169,7 @@ const productsSlice = createSlice({
     searchQuery: '',
     selectedCategory: 'All',
     selectedSort: 'featured',
-    priceRange: [0, 600],
+    priceRange: [0, 60000],
   },
   reducers: {
     setSearchQuery: (state, action) => {

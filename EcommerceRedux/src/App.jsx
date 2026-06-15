@@ -55,7 +55,7 @@ function App() {
     dispatch(setSearchQuery(''));
     dispatch(setSelectedCategory('All'));
     dispatch(setSelectedSort('featured'));
-    dispatch(setPriceRange([0, 600]));
+    dispatch(setPriceRange([0, 60000]));
   };
 
   // Filter & Sort Logic
@@ -218,13 +218,13 @@ function App() {
                 <div className="form-group" style={{ margin: 0 }}>
                   <div className="flex justify-between items-center" style={{ marginBottom: '8px' }}>
                     <label className="form-label" style={{ margin: 0 }}>Price Range</label>
-                    <span style={{ fontSize: '0.75rem', fontWeight: 600 }}>${priceRange[0]} - ${priceRange[1]}</span>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 600 }}>₹{priceRange[0].toLocaleString()} - ₹{priceRange[1].toLocaleString()}</span>
                   </div>
                   <input 
                     type="range" 
                     min="0" 
-                    max="600" 
-                    step="10"
+                    max="60000" 
+                    step="1000"
                     value={priceRange[1]}
                     onChange={(e) => dispatch(setPriceRange([priceRange[0], Number(e.target.value)]))}
                     style={{
@@ -234,8 +234,8 @@ function App() {
                     }}
                   />
                   <div className="flex justify-between" style={{ fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '4px' }}>
-                    <span>$0</span>
-                    <span>$600</span>
+                    <span>₹0</span>
+                    <span>₹60,000</span>
                   </div>
                 </div>
 

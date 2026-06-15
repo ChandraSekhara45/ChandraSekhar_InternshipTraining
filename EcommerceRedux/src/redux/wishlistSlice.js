@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const loadWishlist = () => {
   try {
-    const data = localStorage.getItem('wishlist');
+    const data = localStorage.getItem('wishlist_v2');
     return data ? JSON.parse(data) : [];
   } catch (e) {
     return [];
@@ -23,11 +23,11 @@ const wishlistSlice = createSlice({
       } else {
         state.items.push(productId);
       }
-      localStorage.setItem('wishlist', JSON.stringify(state.items));
+      localStorage.setItem('wishlist_v2', JSON.stringify(state.items));
     },
     clearWishlist: (state) => {
       state.items = [];
-      localStorage.setItem('wishlist', JSON.stringify([]));
+      localStorage.setItem('wishlist_v2', JSON.stringify([]));
     }
   }
 });

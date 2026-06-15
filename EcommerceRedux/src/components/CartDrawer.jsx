@@ -21,8 +21,8 @@ const CartDrawer = ({ isOpen, onClose, setCurrentTab }) => {
   const discountAmount = parseFloat(((subtotal * discountPercent) / 100).toFixed(2));
   const discountedSubtotal = subtotal - discountAmount;
   
-  // Free shipping over $150
-  const shipping = subtotal > 0 && discountedSubtotal < 150 ? 15 : 0;
+  // Free shipping over ₹15,000
+  const shipping = subtotal > 0 && discountedSubtotal < 15000 ? 1000 : 0;
   const tax = parseFloat(((discountedSubtotal * 8) / 100).toFixed(2));
   const total = parseFloat((discountedSubtotal + shipping + tax).toFixed(2));
 
@@ -139,7 +139,7 @@ const CartDrawer = ({ isOpen, onClose, setCurrentTab }) => {
 
                     {/* Price */}
                     <span style={{ fontWeight: 600, fontSize: '0.9rem', fontFamily: "'Outfit', sans-serif" }}>
-                      ${(item.price * item.quantity).toLocaleString()}
+                      ₹{(item.price * item.quantity).toLocaleString()}
                     </span>
                   </div>
                 </div>
@@ -216,31 +216,31 @@ const CartDrawer = ({ isOpen, onClose, setCurrentTab }) => {
             <div className="flex flex-col gap-2" style={{ fontSize: '0.85rem', marginBottom: '20px' }}>
               <div className="flex justify-between text-secondary">
                 <span>Subtotal</span>
-                <span>${subtotal.toLocaleString()}</span>
+                <span>₹{subtotal.toLocaleString()}</span>
               </div>
               
               {discountPercent > 0 && (
                 <div className="flex justify-between text-secondary">
                   <span>Discount ({discountPercent}%)</span>
-                  <span>-${discountAmount.toLocaleString()}</span>
+                  <span>-₹{discountAmount.toLocaleString()}</span>
                 </div>
               )}
 
               <div className="flex justify-between text-secondary">
                 <span>Shipping</span>
-                <span>{shipping === 0 ? 'FREE' : `$${shipping.toFixed(2)}`}</span>
+                <span>{shipping === 0 ? 'FREE' : `₹${shipping.toLocaleString()}`}</span>
               </div>
 
               <div className="flex justify-between text-secondary">
                 <span>Estimated Tax (8%)</span>
-                <span>${tax.toLocaleString()}</span>
+                <span>₹{tax.toLocaleString()}</span>
               </div>
 
               <hr style={{ border: 'none', borderTop: '1px solid var(--border-color)', margin: '8px 0' }} />
 
               <div className="flex justify-between" style={{ fontSize: '1.05rem', fontWeight: 700 }}>
                 <span>Total</span>
-                <span style={{ fontFamily: "'Outfit', sans-serif" }}>${total.toLocaleString()}</span>
+                <span style={{ fontFamily: "'Outfit', sans-serif" }}>₹{total.toLocaleString()}</span>
               </div>
             </div>
 

@@ -106,7 +106,7 @@ const ProductDetailsModal = ({ product, onClose, onAddToCart, isWishlisted, onTo
             {/* Pricing and Star Rating */}
             <div className="flex items-center justify-between" style={{ borderBottom: '1px solid var(--border-color)', paddingBottom: '16px', marginBottom: '20px' }}>
               <span style={{ fontSize: '1.5rem', fontWeight: 700, fontFamily: "'Outfit', sans-serif" }}>
-                ${price.toLocaleString()}
+                ₹{price.toLocaleString()}
               </span>
 
               {rating > 0 ? (

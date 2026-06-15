@@ -154,7 +154,7 @@ const AdminDashboard = () => {
 
             <div className="grid grid-cols-2 gap-4" style={{ margin: 0, padding: 0 }}>
               <div className="form-group" style={{ margin: 0 }}>
-                <label className="form-label">Price ($) *</label>
+                <label className="form-label">Price (₹) *</label>
                 <input 
                   type="number" 
                   step="0.01"
@@ -280,7 +280,7 @@ const AdminDashboard = () => {
                         <div className="flex items-center gap-2" style={{ marginTop: '2px' }}>
                           <span className="badge" style={{ fontSize: '0.55rem', padding: '1px 4px' }}>{item.category}</span>
                           <span className="font-semibold text-sm" style={{ fontFamily: "'Outfit', sans-serif" }}>
-                            ${item.price.toLocaleString()}
+                            ₹{item.price.toLocaleString()}
                           </span>
                         </div>
                       </div>

@@ -2,7 +2,7 @@
 
 const loadCart = () => {
   try {
-    const data = localStorage.getItem('cart');
+    const data = localStorage.getItem('cart_v2');
     return data ? JSON.parse(data) : [];
   } catch (e) {
     return [];
@@ -10,7 +10,7 @@ const loadCart = () => {
 };
 
 const saveCart = (items) => {
-  localStorage.setItem('cart', JSON.stringify(items));
+  localStorage.setItem('cart_v2', JSON.stringify(items));
 };
 
 const PROMO_CODES = {

@@ -115,7 +115,7 @@ const ProductCard = ({ product, onViewDetails, isWishlisted, onToggleWishlist, o
         {/* Pricing & Bag Action */}
         <div className="flex items-center justify-between" style={{ marginTop: 'auto', paddingTop: '12px' }}>
           <span className="font-bold text-lg" style={{ fontFamily: "'Outfit', sans-serif" }}>
-            ${price.toLocaleString()}
+            ₹{price.toLocaleString()}
           </span>
 
           <button
